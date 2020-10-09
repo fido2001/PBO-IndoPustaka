@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="blur" prefHeight="512.0" prefWidth="1100.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.c_HomeMasyarakat">
+    <children>
+        <Pane prefHeight="95.0" prefWidth="899.0" style="-fx-background-color: #c9c8c5;">
+            <children>
+                <ImageView fitHeight="95.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Logo%20Indo%20Pustaka.png" />
+                    </image>
+                </ImageView>
+            </children></Pane>
+        <Pane layoutX="899.0" layoutY="-2.0" prefHeight="512.0" prefWidth="200.0" style="-fx-background-color: #ccc6a5;">
+            <children>
+                <Text layoutX="58.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
+                    <font>
+                        <Font name="Verdana Bold" size="28.0" />
+                    </font>
+                </Text>
+                <Text layoutX="8.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Masyarakat" underline="true">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+                <Button layoutX="30.0" layoutY="145.0" mnemonicParsing="false" onAction="#btnAkun" prefHeight="37.0" prefWidth="140.0" text="Akun Saya">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="202.0" mnemonicParsing="false" onAction="#btnPeminjaman" prefHeight="37.0" prefWidth="140.0" text="Peminjaman">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnDonasi" prefHeight="37.0" prefWidth="140.0" text="Donasi Buku">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="388.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="140.0" text="Logout">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+            <Button layoutX="30.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnPenerimaan" prefHeight="37.0" prefWidth="140.0" text="Penerimaan">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            </children>
+        </Pane>
+        <TableView fx:id="tabelBuku" layoutX="21.0" layoutY="154.0" onMouseClicked="#ambilKode" prefHeight="299.0" prefWidth="557.0">
+            <columns>
+                <TableColumn fx:id="kolomKode" prefWidth="92.0" text="Kode Buku" />
+                <TableColumn fx:id="kolomJudul" prefWidth="92.0" text="Judul" />
+                <TableColumn fx:id="kolomKategori" prefWidth="92.0" text="Kategori" />
+                <TableColumn fx:id="kolomPenulis" prefWidth="92.0" text="Penulis" />
+                <TableColumn fx:id="kolomJumlah" prefWidth="92.0" text="Jumlah" />
+                <TableColumn fx:id="kolomKeterangan" prefWidth="95.0" text="Keterangan" />
+            </columns>
+        </TableView>
+      <Pane layoutX="619.0" layoutY="98.0" prefHeight="412.0" prefWidth="239.0" style="-fx-background-color: #c9c8c5; -fx-background-radius: 15;">
+         <children>
+            <Label layoutX="35.0" layoutY="5.0" text="DETAIL PEMINJAMAN BUKU" />
+            <VBox layoutY="33.0" prefHeight="334.0" prefWidth="118.0" spacing="15.0">
+               <children>
+                  <Label text="Kode Buku :" />
+                  <Label text="Judul Buku :" />
+                  <Label text="Kategori :" />
+                  <Label text="Penulis :" />
+                  <Label prefHeight="37.0" prefWidth="100.0" text="Jumlah Peminjaman :" wrapText="true" />
+                  <Label text="Tanggal Pinjam :" />
+                  <Label text="Tanggal Kembali :" />
+                  <Label text="Cara Pengambilan :" />
+                  <Label prefHeight="29.0" prefWidth="117.0" text="Alamat Peminjaman :" wrapText="true" />
+               </children>
+            </VBox>
+            <VBox layoutX="120.0" layoutY="31.0" prefHeight="119.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="fieldKode" editable="false" />
+                  <TextField fx:id="fieldJudul" editable="false" />
+                  <TextField fx:id="fieldKategori" editable="false" />
+                  <TextField fx:id="fieldPenulis" editable="false" />
+               </children>
+            </VBox>
+            <TextField fx:id="jumlahPinjam" layoutX="120.0" layoutY="180.0" prefHeight="25.0" prefWidth="100.0" />
+            <DatePicker fx:id="tglPinjam" layoutX="120.0" layoutY="213.0" prefHeight="25.0" prefWidth="100.0" />
+            <DatePicker fx:id="tglKembali" layoutX="120.0" layoutY="247.0" prefHeight="25.0" prefWidth="100.0" />
+            <Label fx:id="fieldId" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="17.0" textFill="#cfc9c9">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Button layoutX="66.0" layoutY="371.0" mnemonicParsing="false" onAction="#PinjamClicked" prefHeight="27.0" prefWidth="109.0" text="Pinjam Sekarang" />
+            <TextArea fx:id="alamat" layoutX="120.0" layoutY="310.0" prefHeight="46.0" prefWidth="100.0" />
+            <ComboBox fx:id="caraPengambilan" layoutX="120.0" layoutY="278.0" prefHeight="25.0" prefWidth="100.0" />
+         </children>
+      </Pane>
+      <TextField fx:id="filterField" layoutX="21.0" layoutY="114.0" promptText="Cari Buku" />
+    </children>
+</AnchorPane>

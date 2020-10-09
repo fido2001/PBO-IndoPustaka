@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="blur" prefHeight="512.0" prefWidth="1100.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.c_DataPengiriman">
+    <children>
+        <Pane prefHeight="95.0" prefWidth="899.0" style="-fx-background-color: #c9c8c5;">
+            <children>
+                <ImageView fitHeight="95.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Logo%20Indo%20Pustaka.png" />
+                    </image>
+                </ImageView>
+            </children></Pane>
+        <Pane layoutX="899.0" layoutY="-2.0" prefHeight="512.0" prefWidth="200.0" style="-fx-background-color: #ccc6a5;">
+            <children>
+                <Text layoutX="58.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
+                    <font>
+                        <Font name="Verdana Bold" size="28.0" />
+                    </font>
+                </Text>
+                <Text layoutX="8.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Petugas" underline="true">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+                <Button layoutX="30.0" layoutY="165.0" mnemonicParsing="false" onAction="#btnPengiriman" prefHeight="37.0" prefWidth="140.0" text="Pengiriman">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="222.0" mnemonicParsing="false" onAction="#btnPengembalian" prefHeight="37.0" prefWidth="140.0" text="Pengembalian">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="277.0" mnemonicParsing="false" onAction="#btnDonasi" prefHeight="37.0" prefWidth="140.0" text="Daftar Donasi">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="401.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="140.0" text="Logout">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnDataMasyarakat" prefHeight="37.0" prefWidth="140.0" text="Data Masyarakat">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="30.0" layoutY="108.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="140.0" text="Home">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <TableView fx:id="tabelPeminjaman" layoutX="14.0" layoutY="160.0" onMouseClicked="#ambilIdPeminjaman" prefHeight="299.0" prefWidth="557.0">
+            <columns>
+                <TableColumn fx:id="kolomIdPeminjam" prefWidth="2.0000057220459" text="" visible="false" />
+                <TableColumn fx:id="kolomKodeBuku" prefWidth="2.0000057220459" text="" visible="false" />
+                <TableColumn fx:id="kolomNamaPeminjam" prefWidth="100.0000057220459" text="Nama Peminjam" />
+                <TableColumn fx:id="kolomJudul" prefWidth="152.00001525878906" text="Judul Buku" />
+                <TableColumn fx:id="kolomTglPinjam" prefWidth="105.33331298828125" text="Tanggal Pinjam" />
+                <TableColumn fx:id="kolomTglKembali" prefWidth="113.33340454101562" text="Tanggal Kembali" />
+                <TableColumn fx:id="kolomJumlah" prefWidth="82.0" text="Jumlah" />
+            </columns>
+        </TableView>
+        <Pane layoutX="620.0" layoutY="135.0" prefHeight="349.0" prefWidth="239.0" style="-fx-background-color: #c9c8c5; -fx-background-radius: 15;">
+            <children>
+                <Label layoutX="50.0" layoutY="14.0" text="DATA PENGIRIMAN BUKU" />
+                <VBox layoutY="43.0" prefHeight="299.0" prefWidth="118.0" spacing="15.0">
+                    <children>
+                        <Label text="Kode Buku :" />
+                        <Label text="Judul Buku :" />
+                        <Label text="Tanggal Pinjam :" />
+                        <Label text="Tanggal Kembali :" />
+                        <Label prefHeight="37.0" prefWidth="108.0" text="Status Pengiriman :" wrapText="true" />
+                        <Label prefHeight="37.0" prefWidth="100.0" text="Tanggal Kirim :" wrapText="true" />
+                        <Label text="Ongkir :" />
+                    </children>
+                </VBox>
+                <VBox layoutX="120.0" layoutY="40.0" prefHeight="119.0" prefWidth="100.0" spacing="5.0">
+                    <children>
+                        <TextField fx:id="fieldKode" editable="false" />
+                        <TextField fx:id="fieldJudul" editable="false" />
+                        <TextField fx:id="fieldTglPinjam" editable="false" />
+                        <TextField fx:id="fieldTglKembali" editable="false" />
+                    </children>
+                </VBox>
+                <DatePicker fx:id="fieldTglKirim" layoutX="120.0" layoutY="235.0" prefHeight="25.0" prefWidth="100.0" />
+                <Label fx:id="fieldId" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="17.0" textFill="#cfc9c9">
+                    <font>
+                        <Font size="1.0" />
+                    </font>
+                </Label>
+                <Button layoutX="64.0" layoutY="310.0" mnemonicParsing="false" onAction="#SimpanClicked" prefHeight="27.0" prefWidth="109.0" text="Simpan" />
+                <ComboBox fx:id="fieldStatus" layoutX="120.0" layoutY="180.0" prefHeight="25.0" prefWidth="100.0" />
+                <TextField fx:id="fieldOngkir" layoutX="120.0" layoutY="276.0" prefHeight="25.0" prefWidth="100.0" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
